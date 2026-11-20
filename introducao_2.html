@@ -284,7 +284,7 @@ body.is-intro #app { opacity: 0; pointer-events: none; }
   font-weight: 700;
   font-size: 13px;
   letter-spacing: 0.14em;
-  text-transform: uppercase;
+  text-transform: lowercase;
   color: #fff;
   background: linear-gradient(135deg, #2879ff, #1a50cd 60%, #10327f);
   box-shadow: inset 0 0 0 1px rgba(140, 210, 255, 0.65), 0 12px 36px -10px rgba(47, 123, 255, 0.75);
@@ -488,7 +488,30 @@ body.is-entering .sv-logo__rocket, body.is-entering .sv-logo__trail { animation-
 @media (prefers-reduced-motion: reduce) {
   .sv-intro, .sv-intro__content { transition: none !important; }
 }
+.sv-history a {
+    display: inline-block;
+      margin-top: 10px;
+        color: var(--sv-teal, #84B9AC);
+          text-decoration: underline;
+            text-underline-offset: 3px;
+              font-weight: 600;
+              }
+
+              .sv-history a:hover {
+                color: var(--sv-orange, #EB8928);
+                }
+
+                .sv-history a:focus-visible {
+                  outline: 2px solid var(--sv-teal, #84B9AC);
+                    outline-offset: 3px;
+                      border-radius: 4px;
+                      }
+/* Esconde o título em texto e mantém a logo  */
+h1 {
+  display: none !important;
+}
 </style>
+<link rel="stylesheet" href="loader.css">
 </head><body class="is-intro"><section aria-labelledby="sv-intro-title" class="sv-intro" id="sv-intro">
 <div aria-hidden="true" class="sv-intro__art">
 <canvas class="sv-intro__canvas" id="sv-saturn"></canvas>
@@ -528,19 +551,29 @@ body.is-entering .sv-logo__rocket, body.is-entering .sv-logo__trail { animation-
 </svg>
 </div>
 <h1 class="sv-intro__title" id="sv-intro-title">Saturn <span>V</span></h1>
-<p class="sv-intro__lead">Construa seu foguete. Prepare sua missão.</p>
-<p class="sv-intro__text">Monte e personalize seu próprio foguete no hangar, escolha um destino no Sistema Solar, passe pelo checklist de lançamento e conduza o voo até o pouso.</p>
+<p class="sv-intro__lead">Construa seu foguete</p>
+<p class="sv-intro__text">Com o <b>SATURN V</b> você consegue montar seu foguete e explorar lugares do sistema solar! </p>
 <aside class="sv-history">
 <div class="sv-history__head">
 <span class="sv-history__tag">Arquivo histórico</span>
 <span class="sv-history__year">1967 — 1973</span>
 </div>
-<p>O nome é uma homenagem ao <strong>Saturn V</strong>, o foguete da NASA que impulsionou as missões Apollo. Com 110 metros de altura, levou a <strong>Apollo 11</strong> à Lua em 1969 — quando, pela primeira vez, seres humanos pisaram em outro mundo.</p>
+<p>O nome é uma homenagem ao <strong>Saturn V</strong>, o foguete da NASA que impulsionou as missões Apollo. Com 110 metros de altura, levou a <strong>Apollo 11</strong> para a Lua!</p>
 <dl class="sv-history__stats">
 <div><dt>Altura</dt><dd>110 m</dd></div>
 <div><dt>Lançamentos</dt><dd>13</dd></div>
 <div><dt>Apollo 11</dt><dd>16·07·1969</dd></div>
 </dl>
+<p class="sv-history__link-wrap">
+      <a
+          class="sv-history__link"
+              href="https://pt.wikipedia.org/wiki/Saturno_V"
+                  target="_blank"
+                      rel="noopener noreferrer"
+                        >
+                            Saiba mais sobre o Saturn V na Wikipédia
+                              </a>
+                              </p>
 </aside>
 <button class="sv-start" id="sv-start" type="button">
 <span>Vamos começar</span>
@@ -1296,4 +1329,6 @@ window.addEventListener("pageshow", () => {
 (document.fonts?.ready || Promise.resolve()).then(startAnim);
 
 </script>
+<div id="sv-loader" class="sv-loader" hidden></div>
+<script src="loader.js"></script>
 </body></html>
