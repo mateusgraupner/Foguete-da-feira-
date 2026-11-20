@@ -1937,7 +1937,7 @@ button, input { font: inherit; }
 
 /* Hangar test bench */
 .rg-preview { border:1px solid rgba(245,230,196,.35)!important; border-radius:15px!important; background:radial-gradient(ellipse at 50% 84%,rgba(235,137,40,.15),transparent 45%),linear-gradient(180deg,#1b202b,#11141c 82%)!important; box-shadow:inset 0 0 0 5px rgba(245,230,196,.035),inset 0 0 60px rgba(0,0,0,.38)!important; }
-.rg-preview::before { content:"SATURN V // TEST STAND"; position:absolute; top:14px; left:15px; padding:6px 9px; border:1px solid rgba(245,230,196,.36); border-left:3px solid var(--sv-orange); color:var(--sv-cream); background:rgba(22,24,33,.78); font:9px var(--sv-mono); letter-spacing:.13em; }
+.rg-preview::before { content:"SATURN V"; position:absolute; top:14px; left:15px; padding:6px 9px; border:1px solid rgba(245,230,196,.36); border-left:3px solid var(--sv-orange); color:var(--sv-cream); background:rgba(22,24,33,.78); font:9px var(--sv-mono); letter-spacing:.13em; }
 .rg-preview__glow { background:radial-gradient(circle,rgba(132,185,172,.17),transparent 62%); }
 .rg-preview__grid { background-image:linear-gradient(rgba(132,185,172,.20) 1px,transparent 1px),linear-gradient(90deg,rgba(132,185,172,.20) 1px,transparent 1px); background-size:32px 32px; }
 .rg-preview__pad { border-color:rgba(245,230,196,.55); box-shadow:0 0 22px rgba(235,137,40,.15); }
@@ -2304,6 +2304,7 @@ html,body{min-height:100%;margin:0}
   .rg-countdown { font-size: clamp(40px, 15vw, 62px); }
 }
 </style>
+<link rel="stylesheet" href="engenheiro.css">
 </head><body><div id="app">
 <div class="rg-app" data-screen="hangar">
 <div aria-hidden="true" class="rg-cosmos">
@@ -2570,7 +2571,7 @@ const ASTRONAUT_TAB = {
   id: "astronauta", label: "Astronauta",
   icon: `<svg class="rg-ui-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="15" rx="6"/><path d="M5 9h14M8 12h8m-8 6v3h8v-3"/></svg>`,
   controls: [
-    { key: "preset", label: "Modelos", type: "choice", options: [["apollo","Comandante Apollo"],["orbital","Engenharia orbital"],["mars","Exploração marciana"],["lunar","Pioneira lunar"]] },
+    { key: "preset", label: "Modelos", type: "choice", options: [["apollo","Comandante Apollo"],["orbital","Engenheiro orbital"],["mars","Exploração marciana"],["lunar","Pioneira lunar"]] },
     { key: "crewName", label: "Nome do astronauta", type: "text", max: 18 },
     ...[["suitColor","Traje"],["helmetColor","Capacete"],["backpackColor","Mochila PLSS"],["bootsColor","Botas e luvas"],["accessoryColor","Cor do acessório"],["flagPrimary","Cor principal da bandeira"],["flagSecondary","Cor secundária da bandeira"]]
       .map(([key,label]) => ({ key, label, type: "color", colors: [...new Set([...HULL_COLORS, "#F2C14E", "#D16B89"])] })),
@@ -2771,7 +2772,7 @@ const G = {
   pluto: PLANET_IMG("pluto", "126%"),
   jupiter: PLANET_IMG("jupiter", "124%"),
   saturn: "radial-gradient(ellipse at 38% 32%, #f3dfae 0%, #caa66f 32%, #806344 68%, #28232a 100%) center / 134% no-repeat #05070d",
-  grey: PLANET_IMG("moon", "128%"),
+  moon: PLANET_IMG("moon", "128%"),
 };
 
 const DESTINATIONS = [
@@ -4608,7 +4609,7 @@ function initRocketGame(root) {
         const open = R.guide.hidden;
         R.guide.hidden = !open;
         R.guideBtn.setAttribute("aria-expanded", String(open));
-        R.guideBtn.textContent = open ? "✕ Fechar ajuda" : "❓ Dúvidas? Como lançar";
+        R.guideBtn.textContent = open ? "✕ Fechar ajuda" : " Dúvidas? Como lançar";
         if (open) R.guide.scrollIntoView({ behavior: "smooth", block: "nearest" });
         break;
       }
@@ -4687,4 +4688,5 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 </script>
+<script src="engenheiro.js"></script>
 </body></html>
